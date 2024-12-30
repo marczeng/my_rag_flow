@@ -6,9 +6,9 @@ rag_qa_system/
 ├── setup.py                          # Python包安装脚本
 ├── .gitignore                        # Git忽略规则
 ├── config/                           # 配置文件存放目录
-│   ├── rag_config.json               # RAG配置参数
-│   ├── qa_config.json                # QA系统配置参数
-│   └── document_parser_config.json   # 文档解析配置参数
+│   ├── rag_config.ini               # RAG配置参数
+│   ├── qa_config.ini                # QA系统配置参数
+│   └── document_parser_config.ini   # 文档解析配置参数
 ├── data/                             # 数据集存放目录
 │   ├── raw/                          # 原始数据集
 │   ├── processed/                    # 处理后的数据集
