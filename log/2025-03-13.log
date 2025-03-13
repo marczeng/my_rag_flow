@@ -33,3 +33,9 @@ data/docx/AF-folder/AF01.docx
 data/docx/AF-folder/AF01.docx
 2025-03-13 17:12:23,141 - api.py[line:74] - sessionId is test123, filename is 
 data/docx/AF-folder/AF01.docx
+2025-03-13 17:25:50,695 - api.py[line:66] - sessionId is test123, filename is data/docx/AF-folder/AF01.doc
+2025-03-13 17:26:04,957 - api.py[line:66] - sessionId is test123, filename is data/docx/AF-folder/AF01.doc
+2025-03-13 17:27:28,038 - api.py[line:72] - sessionId is test123, filename is 
+data/docx/AF-folder/AF01.doc
+2025-03-13 17:27:35,329 - api.py[line:72] - sessionId is test123, filename is 
+data/docx/AF-folder/AF01.doc

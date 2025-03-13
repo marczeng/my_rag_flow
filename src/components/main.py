@@ -4,10 +4,14 @@
 # @Time    : 2025/3/13 15:33
 
 from src.components.parser_docx.main import ParserDocx
+from src.components.parser_docx.doc2docx import convert_doc_to_docx
 
 def operate_file(filename):
     func = ParserDocx()
     if isinstance(filename,str):
+        if filename.endswith("doc"):
+            convert_doc_to_docx(filename,"data/temp")
+            filename = filename[:-3]+"docx"
         file_content = func.read2docx(filename)
         response = func.judge(file_content)
         return response
@@ -15,6 +19,9 @@ def operate_file(filename):
     elif isinstance(filename,list):
         response = {}
         for sub_file in filename:
+            if sub_file.endswith("doc"):
+                convert_doc_to_docx(sub_file, "data/temp")
+                sub_file = sub_file[:-3] + "docx"
             file_content = func.read2docx(sub_file)
             result = func.judge(file_content)
             response[sub_file] = result
