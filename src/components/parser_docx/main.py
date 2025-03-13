@@ -2,7 +2,7 @@
 # @author  : 冬瓜                              
 # @mail    : dylan_han@126.com    
 # @Time    : 2025/3/13 15:14
-import re
+
 import os
 import docx
 import json
@@ -10,10 +10,8 @@ from docx.document import Document
 from docx.text.paragraph import Paragraph
 from docx.parts.image import ImagePart
 from docx.table import _Cell, Table
-
 from docx.oxml.table import CT_Tbl
 from docx.oxml.text.paragraph import CT_P
-
 import pandas as pd
 from src.utils.utils import get_uuid
 
@@ -81,9 +79,6 @@ class ParserDocx():
         k = 0
         for part in self.iter_block_items(doc):
             if part[1] == "Text":
-                # print(part)
-                # print(part[0].paragraph_format.first_line_indent.pt)
-                # s = input("push")
                 context = part[0].text
                 if context == "":
                     continue
