@@ -18,12 +18,12 @@
 - **优秀的问答体验**：提供无缝的知识查询服务
 
 ## 3、快速开始
-1. **安装 Docker**
-  确保您的系统上已经安装了[Docker](https://docs.docker.com/get-docker/)。如果尚未安装，请根据官方文档进行安装。
+**3.1 安装 Docker**
+确保您的系统上已经安装了[Docker](https://docs.docker.com/get-docker/)。如果尚未安装，请根据官方文档进行安装。
 
-2. **安装 Elasticsearch (ES)**
+**3.2 安装 Elasticsearch (ES)**
 
-  1. 执行以下命令来拉取并运行Elasticsearch容器：
+执行以下命令来拉取并运行Elasticsearch容器：
 
   ```bash
   # 拉取最新版本的Elasticsearch镜像
@@ -38,7 +38,7 @@
   - `-p 9200:9200 -p 9300:9300`：将容器的端口映射到主机的端口。
   - `-e "discovery.type=single-node"`：设置环境变量以允许单节点集群。
 
-3. **安装MatrixOne**
+**3.3 安装MatrixOne**
 
   接下来，通过以下命令安装MatrixOne向量数据库：
 
@@ -54,7 +54,7 @@
   - `--name matrixone`：为容器指定一个名称。
   - `-p 6001:6001`：将容器的6001端口映射到主机的6001端口。
 
-4. **验证安装**
+**3.4 验证安装**
 
   为了验证Elasticsearch和MatrixOne是否成功安装并运行，您可以分别访问以下URL：
 
@@ -68,7 +68,7 @@
 
 ​		如果返回了相关信息，则说明安装成功。
 
-​	5.**后续配置**
+**3.5 后续配置**
 
 ​	根据您的具体需求，您可能需要对Elasticsearch和MatrixOne进行进一步的配置。请参考各自的官方文档获取更多信息：
 
