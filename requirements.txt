@@ -1,0 +1,5 @@
+fastapi
+uvicorn
+asyncio
+pydantic
+python-docx

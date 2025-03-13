@@ -1,0 +1,479 @@
+[
+    {
+        "content": "公司代码：600050                                                 公司简称：中国联通",
+        "style": "header",
+        "type": "content",
+        "font_size": 10.5,
+        "bold": null,
+        "indent": 0,
+        "index": 0
+    },
+    {
+        "content": "中国联合网络通信股份有限公司 2020 年第一季度报告正文",
+        "style": "header",
+        "type": "content",
+        "font_size": 15.5,
+        "bold": true,
+        "indent": -20.55,
+        "index": 1
+    },
+    {
+        "content": "一、重要提示",
+        "style": "header",
+        "type": "content",
+        "font_size": null,
+        "bold": true,
+        "indent": 0,
+        "index": 2
+    },
+    {
+        "content": "1.1 公司董事会、监事会及董事、监事、高级管理人员保证季度报告内容的真实、准确、完整，不 存在虚假记载、误导性陈述或者重大遗漏，并承担个别和连带的法律责任。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": -20.15,
+        "index": 3
+    },
+    {
+        "content": "1.2 公司全体董事出席董事会审议季度报告。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 4
+    },
+    {
+        "content": "1.3 公司负责人王晓初、主管会计工作负责人姜爱华及会计机构负责人（会计主管人员）王芳保证 季度报告中财务报表的真实、准确、完整。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": -20.25,
+        "index": 5
+    },
+    {
+        "content": "1.4 本公司第一季度报告未经审计。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 6
+    },
+    {
+        "content": "二、公司主要财务数据和股东变化",
+        "style": "header",
+        "type": "content",
+        "font_size": null,
+        "bold": true,
+        "indent": 0,
+        "index": 7
+    },
+    {
+        "content": "2.1 主要财务数据",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 8
+    },
+    {
+        "content": "单位：元  币种：人民币",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 9
+    },
+    {
+        "content": "data/cache/tables/84efbecb-6c19-4ca0-9d2e-f88e0814598b.xlsx",
+        "style": null,
+        "type": "tables",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 10
+    },
+    {
+        "content": "非经常性损益项目和金额 √适用 □不适用",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": -2.4,
+        "index": 11
+    },
+    {
+        "content": "单位：元  币种：人民币",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 12
+    },
+    {
+        "content": "data/cache/tables/e93a3cfc-1cf9-4f59-b852-0e644b278da1.xlsx",
+        "style": null,
+        "type": "tables",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 13
+    },
+    {
+        "content": "data/cache/tables/b6b63430-e35f-4807-9aa8-b4901c3cb6ce.xlsx",
+        "style": null,
+        "type": "tables",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 14
+    },
+    {
+        "content": "2.2 截止报告期末的股东总数、前十名股东、前十名流通股东（或无限售条件股东）持股情况表",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 15
+    },
+    {
+        "content": "单位：股",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 16
+    },
+    {
+        "content": "data/cache/tables/59429ab2-db95-4d20-abd8-dd95961b840c.xlsx",
+        "style": null,
+        "type": "tables",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 17
+    },
+    {
+        "content": "data/cache/tables/3d67fbf8-2b36-415d-b53e-a8671a5d3be7.xlsx",
+        "style": null,
+        "type": "tables",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 18
+    },
+    {
+        "content": "2.3 截止报告期末的优先股股东总数、前十名优先股股东、前十名优先股无限售条件股东持股情况 表",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": -20.8,
+        "index": 19
+    },
+    {
+        "content": "□适用 √不适用",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 20
+    },
+    {
+        "content": "三、经营情况",
+        "style": "header",
+        "type": "content",
+        "font_size": null,
+        "bold": true,
+        "indent": 0,
+        "index": 21
+    },
+    {
+        "content": "data/cache/tables/217376fa-f732-414f-896b-b22a3b94cd79.xlsx",
+        "style": null,
+        "type": "tables",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 22
+    },
+    {
+        "content": "data/cache/tables/920afeaa-f820-481e-9954-efc2ee2dbaaa.xlsx",
+        "style": null,
+        "type": "tables",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 23
+    },
+    {
+        "content": "2020年第一季度，面对市场饱和、激烈市场竞争及新型冠状病毒疫情等挑战，公司深化转型创 新，加强差异化和互联网化运营，加快产业互联网业务的能力培养和规模拓展，强化融合经营，并 严控用户发展成本，维护公司价值，努力推动高质量发展。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 21.05,
+        "index": 24
+    },
+    {
+        "content": "今年以来，新型冠状病毒疫情对公司的经营造成一定的挑战，特别是在业务拓展、新用户发展、 5G网络建设和坏账风险等方面。疫情也加速经济社会数字化、网络化、智能化转型需求，为公司带 来新商机。公司充分利用大数据、AI和5G等新技术，为疫情精准防控、智慧政务和企业复工复产提 供有力支撑，同时加快互联网化运营转型，创新通信供给，积极推广新型信息化应用产品，努力转 危为机。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 21.0,
+        "index": 25
+    },
+    {
+        "content": "在移动业务方面，公司自去年下半年起适时调整经营策略，加强自律，坚持理性规范竞争，并 从以往重点关注用户增长数量，转为重点关注用户发展质量和价值，深化转型创新，严控营销费用、 无效低效产品和渠道，虽然移动业务发展短期会受到一定的影响，但相信有利于公司长远发展和价 值最大化。2020年第一季度，移动出账用户1净减747万户，达到3.11亿户，其中4G用户1达到2.55亿 户。移动出账用户ARPU为人民币40.0元。移动主营业务收入为人民币377.49亿元，比去年同期下降 4.1%，跌幅较去年全年的-5.3%有所改善。未来公司将集中资源积极发展中高端差异化产品，借力内 容、权益和金融工具提升产品价值，并利用大数据分析赋能，精准营销，同时做好存量经营。同时 积极发挥5G网络共建共享优势，高效提升竞争力和价值，通过5G创新应用引领消费升级，努力推动 移动主营业务收入逐步企稳回升。预计随着5G网络的建设加快，加上5G终端价格持续下降和普及， 创新应用不断推出，5G登网用户将于今年下半年快速发展。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 21.0,
+        "index": 26
+    },
+    {
+        "content": "在固网宽带业务方面，面对激烈的市场竞争，公司坚持理性规范竞争，持续打造高速带宽和融 合产品的突出优势，积极应对挑战。2020年第一季度，固网宽带用户净增135万户，达到8,483万户， 固网宽带接入收入实现止跌回升，达到人民币107.85亿元，比去年同期上升4.4%。在创新业务领域， 公司以“云+智能网络+智能应用 ”融合经营拉动创新业务和基础业务相互促进发展，通过生态合作 打造云业务能力平台以及产业互联网解决方案和产品，并联合重点行业头部客户积极打造典型5G应 用场景，加快孵化5G行业创新应用，为未来增长积蓄动能。2020年第一季度，产业互联网业务收入 为人民币114.48亿元，比去年同期上升32.2%。得益于创新业务快速增长拉动，固网主营业务收入达 到人民币298.94亿元，比去年同期上升11.1%。整体主营业务收入为人民币683.07亿元，比去年同期 上升2.3%。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 20.9,
+        "index": 27
+    },
+    {
+        "content": "2020年第一季度，网间结算成本比去年同期下降15.6%，主要受网间话务量下滑影响。折旧及摊 销比去年同期下降1.4%，主要得益于近年资本开支的良好管控。网络运行及支撑成本比去年同期上 升1.6%，主要由于网络规模扩大导致期内铁塔使用费增加。公司持续推进激励机制改革，强化激励",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 21.05,
+        "index": 28
+    },
+    {
+        "content": "与绩效挂钩，同时加大引入创新人才，增强创新发展新动能，人工成本比去年同期上升15.2%。销售 通信产品成本比去年同期下降19.5%，主要由于期内通信产品销售下降。期内公司严控用户发展成本， 销售费用比去年同期下降15.0%至人民币76.89亿元。其他营业成本及管理费用比去年同期上升 28.0%，主要由于ICT业务快速增长导致相关服务成本增加，以及对创新业务的技术支撑的投入增加， 处置固定资产损失和坏账损失的增加。2020年第一季度，EBITDA2为人民币236.30亿元，比去年同期 下降5.8%，但比去年第四季度上升10.1%。EBITDA占主营业务收入比为34.6%。归属于母公司净利润 为人民币13.96亿元，比去年同期下降14.1%，但比去年第四季度上升109.6%。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0.2,
+        "index": 29
+    },
+    {
+        "content": "未来公司将坚定聚焦创新合作战略定力，扎实推进全面互联网化运营，纵深推进混合所有制改 革，围绕“提价值、谋发展、重基础、有激情”的发展目标，开创高质量发展的新局面，努力提升 盈利能力，为股东创造更大价值。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 21.1,
+        "index": 30
+    },
+    {
+        "content": "附注 1：移动业务数据包含 5G 用户数。",
+        "style": "header",
+        "type": "content",
+        "font_size": 9.5,
+        "bold": null,
+        "indent": 0,
+        "index": 31
+    },
+    {
+        "content": "附注 2：反映了加回财务费用、所得税、营业成本和管理费用及研发费用中的折旧及摊销以及减去投资收 益、公允价值变动净收益、其他收益、营业外净收入的净利润。由于电信业是资本密集型产业，资本开 支和财务费用可能对具有类似经营成果的公司盈利产生重大影响。因此，公司认为，对于与公司类似的 电信公司而言，EBITDA 有助于对公司经营成果分析，但它并非公认会计原则财务指标，并无统一定义， 故未必可与其他公司的类似指标作比较。",
+        "style": "header",
+        "type": "content",
+        "font_size": 9.5,
+        "bold": null,
+        "indent": 0.7,
+        "index": 32
+    },
+    {
+        "content": "四、重要事项",
+        "style": "header",
+        "type": "content",
+        "font_size": null,
+        "bold": true,
+        "indent": 0,
+        "index": 33
+    },
+    {
+        "content": "4.1 公司主要会计报表项目、财务指标重大变动的情况及原因 √适用 □不适用",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": -2.6,
+        "index": 34
+    },
+    {
+        "content": "data/cache/tables/ad68eee7-adb6-4305-a7f7-768bbcf24ed1.xlsx",
+        "style": null,
+        "type": "tables",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 35
+    },
+    {
+        "content": "1.交易性金融资产变动原因：本公司控股子公司联通集团财务有限公司取得有价证券投资资质，本 年新增货币基金投资；",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0.7,
+        "index": 36
+    },
+    {
+        "content": "2.应收账款变动原因：疫情期间，为做好公共服务支撑保障，对部分用户实施欠费不停机、延长缴 费期等措施，欠费增加且回款较慢；",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": -0.45,
+        "index": 37
+    },
+    {
+        "content": "3.固定资产变动原因：新增折旧大于新增资产； 4.短期借款变动原因：偿还外部贷款约 20 亿。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0.25,
+        "index": 38
+    },
+    {
+        "content": "data/cache/tables/26edd84e-7622-4f73-9669-2abc997f3806.xlsx",
+        "style": null,
+        "type": "tables",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 39
+    },
+    {
+        "content": "1.营业费用变动原因：公司深化转型创新，加强差异化和互联网化运营，并严控用户发展成本； 2.财务费用变动原因：偿还外部贷款，利息支出减少。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0.65,
+        "index": 40
+    },
+    {
+        "content": "4.2 重要事项进展情况及其影响和解决方案的分析说明 √适用 □不适用",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": -2.6,
+        "index": 41
+    },
+    {
+        "content": "（1）报告期内，李国华先生因已届退休年龄，辞去公司董事、董事会发展战略委员会委员及总 裁职务；邵广禄先生因工作调动，辞去公司高级副总裁职务；周仁杰先生因已届退休，辞去公司职 工代表监事职务，公司职工代表大会选举张保英先生担任公司职工代表监事。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 21.25,
+        "index": 42
+    },
+    {
+        "content": "详情请见公司在《中国证券报》《上海证券报》《证券时报》、上海证券交易所网站及公司网 站发布的《关于公司高级副总裁辞任的公告》（公告编号：2020-001）、《关于变更职工代表监事 的公告》（公告编号：2020-004）、《关于公司董事、总裁辞任的公告》（公告编号：2020-007）。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 21.05,
+        "index": 43
+    },
+    {
+        "content": "（2）2月27日，公司完成对82名激励对象已获授但尚未解除限售的8,198,000股限制性股票的回 购注销；3月23日，经公司董事会、监事会分别审议通过，公司将对308名激励对象已获授但尚未解 除限售的9,912,200股限制性股票进行回购注销，议案尚需提交公司股东大会审议；报告期内，经公 司董事会、监事会分别审议通过，公司限制性股票激励计划首次授予股票共计30,331.44万股于2020 年4月9日上市流通。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 21.35,
+        "index": 44
+    },
+    {
+        "content": "详情请见公司在《中国证券报》《上海证券报》《证券时报》、上海证券交易所网站及公司网 站发布的《关于首期限制性股票计划部分激励对象限制性股票回购注销实施公告》（公告编号： 2020-006）、《关于回购注销首期限制性股票计划部分激励对象限制性股票的公告》（公告编号： 2020-016）、《关于公司限制性股票激励计划首次授予股票第一个解锁期解锁暨上市的公告》（公 告编号：2020-022）。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 21.05,
+        "index": 45
+    },
+    {
+        "content": "（3）报告期内，经公司董事会审议通过，同意本公司间接控股子公司中国联合网络通信有限公 司（简称“联通运营公司”）与中国铁塔股份有限公司、广发银行股份有限公司开展相关关联交易 并提请股东大会审议；同意联通运营公司与深圳市腾讯计算机系统有限公司、招联消费金融有限公 司开展相关关联交易，并授权管理层全权办理相关事宜。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 21.05,
+        "index": 46
+    },
+    {
+        "content": "详情请见公司在《中国证券报》《上海证券报》《证券时报》、上海证券交易所网站及公司网 站发布的《第六届董事会第十七次会议决议公告》（公告编号： 2020-009）、《关于日常关联交易 的公告》（公告编号：2020-011）。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 21.05,
+        "index": 47
+    },
+    {
+        "content": "4.3 报告期内超期未履行完毕的承诺事项",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 48
+    },
+    {
+        "content": "□适用 √不适用",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 49
+    },
+    {
+        "content": "4.4 预测年初至下一报告期期末的累计净利润可能为亏损或者与上年同期相比发生重大变动的警示 及原因说明",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": -18.0,
+        "index": 50
+    },
+    {
+        "content": "□适用 √不适用",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 51
+    },
+    {
+        "content": "data/cache/tables/74d95ec3-1396-4ee8-8642-11d22c19e4d3.xlsx",
+        "style": null,
+        "type": "tables",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 52
+    }
+]

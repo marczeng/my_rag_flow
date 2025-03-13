@@ -1,0 +1,461 @@
+[
+    {
+        "content": "公司代码：600050                                                 公司简称：中国联通",
+        "style": "header",
+        "type": "content",
+        "font_size": 10.5,
+        "bold": null,
+        "indent": 0,
+        "index": 0
+    },
+    {
+        "content": "中国联合网络通信股份有限公司 2019 年第三季度报告正文",
+        "style": "header",
+        "type": "content",
+        "font_size": 15.5,
+        "bold": true,
+        "indent": -20.7,
+        "index": 1
+    },
+    {
+        "content": "一、重要提示",
+        "style": "header",
+        "type": "content",
+        "font_size": null,
+        "bold": true,
+        "indent": 0,
+        "index": 2
+    },
+    {
+        "content": "1.1 公司董事会、监事会及董事、监事、高级管理人员保证季度报告内容的真实、准确、完整，不 存在虚假记载、误导性陈述或者重大遗漏，并承担个别和连带的法律责任。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": -17.15,
+        "index": 3
+    },
+    {
+        "content": "1.2 公司全体董事出席董事会审议季度报告。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 4
+    },
+    {
+        "content": "1.3 公司负责人王晓初、主管会计工作负责人姜爱华及会计机构负责人（会计主管人员）王芳保证 季度报告中财务报表的真实、准确、完整。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": -17.25,
+        "index": 5
+    },
+    {
+        "content": "1.4 公司第三季度报告未经审计。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 6
+    },
+    {
+        "content": "二、公司主要财务数据和股东变化",
+        "style": "header",
+        "type": "content",
+        "font_size": null,
+        "bold": true,
+        "indent": 0,
+        "index": 7
+    },
+    {
+        "content": "2.1 主要财务数据",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 8
+    },
+    {
+        "content": "单位：元  币种：人民币",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 9
+    },
+    {
+        "content": "data/cache/tables/0a543a3b-5789-4a93-be8f-bfc8eb848f09.xlsx",
+        "style": null,
+        "type": "tables",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 10
+    },
+    {
+        "content": "非经常性损益项目和金额 √适用 □不适用",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": -2.4,
+        "index": 11
+    },
+    {
+        "content": "单位：元  币种：人民币",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 12
+    },
+    {
+        "content": "data/cache/tables/64f1a9e8-1dcc-4f26-9eaa-58b2baf06315.xlsx",
+        "style": null,
+        "type": "tables",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 13
+    },
+    {
+        "content": "data/cache/tables/908df35d-148f-4ebc-b569-687ca496ff8e.xlsx",
+        "style": null,
+        "type": "tables",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 14
+    },
+    {
+        "content": "2.2 截止报告期末的股东总数、前十名股东、前十名流通股东（或无限售条件股东）持股情况表 单位：股",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": -402.0,
+        "index": 15
+    },
+    {
+        "content": "data/cache/tables/c0fe31a8-eddc-457e-a3c6-9c6729e86f81.xlsx",
+        "style": null,
+        "type": "tables",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 16
+    },
+    {
+        "content": "data/cache/tables/0b0453d2-f87a-4c40-b1de-1005f6d7541e.xlsx",
+        "style": null,
+        "type": "tables",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 17
+    },
+    {
+        "content": "2.3 截止报告期末的优先股股东总数、前十名优先股股东、前十名优先股无限售条件股东持股情 况表",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": -20.95,
+        "index": 18
+    },
+    {
+        "content": "□适用 √不适用",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 19
+    },
+    {
+        "content": "三、经营情况",
+        "style": "header",
+        "type": "content",
+        "font_size": null,
+        "bold": true,
+        "indent": 0,
+        "index": 20
+    },
+    {
+        "content": "data/cache/tables/ff8fb1b5-bdfd-422e-9ac9-71dcbe746b3e.xlsx",
+        "style": null,
+        "type": "tables",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 21
+    },
+    {
+        "content": "2019年首三季度，面对行业发展的新挑战，公司深化实施聚焦创新合作战略，加快互联网化 运营转型，纵深推进混改，创新业务持续快速增长，支撑整体主营业务收入基本保持稳定。得益 于良好的成本管控，2019年首三季度公司的净利润持续显著提升。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 21.1,
+        "index": 22
+    },
+    {
+        "content": "受提速降费、市场饱和、激烈市场竞争以及4G流量红利逐步消退的影响，2019年首三季度移 动主营业务收入比去年同期下降6.1%至人民币1,177.33亿元，移动出账用户ARPU为人民币40.6元。 公司逐步发挥LTE 900MHz 4G网络的深度覆盖和农村区域广覆盖优势，聚焦产品、渠道和营销加大 力度推动互联网化运营转型，严控用户发展成本及超低资费套餐，坚持差异化经营，努力避免简 单价格战。2019年首三季度，移动出账用户净增969万户，达到3.25亿户；其中4G用户净增3,122 万户，达到2.51亿户。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 21.15,
+        "index": 23
+    },
+    {
+        "content": "公司以“大视频、大融合、大带宽”积极应对宽带市场的激烈竞争挑战，打造宽带2I2H、2B2H 营销新模式，提升营销能力。2019年首三季度，固网宽带用户净增357万户，达到8,445万户，固 网宽带接入收入为人民币309.59亿元。在创新业务领域，公司加快云计算、大数据、物联网等重 点创新业务的能力培养和规模拓展，不断强化机制创新，加快创新人才队伍建设和激励分配改革， 以“云+智能网络+智能应用 ”融合经营模式，拉动创新业务实现持续快速突破。2019年首三季度， 产业互联网业务收入为人民币242.91亿元，比去年同期上升40.8%。得益于创新业务快速增长拉动， 固网主营业务收入达到人民币788.63亿元， 比去年同期上升7.7%。整体主营业务收入为人民币 1,985.32亿元，比去年同期下降0.7%，跌幅较今年上半年的-1.1%有所缓和。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 21.3,
+        "index": 24
+    },
+    {
+        "content": "公司自2019年1月1日起执行《企业会计准则第21号——租赁（修订）》(以下简称“新租赁准 则”)，根据准则允许的简化处理方法，对所有适用的租赁确认租赁负债及相应的使用权资产，并 确认租赁负债未偿还余额所产生的利息费用以及使用权资产的折旧费用。公司选择采用修订追溯 法执行该准则，即对首次执行前年度/期间的可比期间不予调整，同时将首次执行累积影响数确认 为总资产、总负债及期初留存收益和少数股东权益的调整。因此，执行新租赁准则导致2019年首",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 21.3,
+        "index": 25
+    },
+    {
+        "content": "三季度折旧及摊销和财务费用有所增加，但同时网络运行及支撑成本中的租赁费用相应有所下降。 2019年首三季度，网间结算支出比去年同期下降11.7%，主要受网间话务量下滑影响。期内公司严 控用户发展成本，使得销售费用得到良好管控，为人民币257.05亿元，较去年同期轻微上升1.7%。 投资收益比去年同期下降18.9%，主要由于去年8月份本公司联营公司中国铁塔股份有限公司（简 称“ 中国铁塔 ”）在香港联交所上市并发行新股，导致公司对中国铁塔的持股比例变化，出售铁 塔及相关资产的递延收益一次性转回共计人民币6.82亿元，计入投资收益。2019年首三季度， EBITDA1为人民币732.03亿元，比去年同期上升10.3%，EBITDA占主营业务收入比为36.9%。归属于 母公司净利润为人民币43.16亿元，比去年同期上升24.4%。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0.1,
+        "index": 26
+    },
+    {
+        "content": "如果剔除执行新租赁准则对本期的影响，2019年首三季度折旧及摊销比去年同期下降4.5%， 主要得益于近年资本开支的良好管控。财务费用比去年同期下降486.0%，主要由于良好的自由现 金流助力期内平均带息债务比去年同期大幅减少。网络运行及支撑成本比去年同期下降4.5%，主 要得益于对维护费用和电费的有效控制。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 21.1,
+        "index": 27
+    },
+    {
+        "content": "2019年9月，公司控股子公司中国联合网络通信（香港）股份有限公司之全资附属子公司中国  联合网络通信有限公司（简称“联通运营公司”）与中国电信股份有限公司（简称“ 中国电信 ”） 签署合作协议，在全国范围内合作共建一张5G接入网络，公司认为，与中国电信进行5G网络共建  共享合作，特别是双方连续的5G频率共享，有助于降低未来5G网络建设和运维成本，高效实现5G  网络覆盖，快速形成5G服务能力，增强5G网络和服务的市场竞争力，提升网络效益和资产运营效  率，达成双方的互利共赢。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 21.15,
+        "index": 28
+    },
+    {
+        "content": "未来，公司将直面挑战，奋力开创“五新”联通建设和高质量发展的新局面。公司将坚定不 移地深化互联网化运营，持续提升客户感知、运营效率和差异化竞争力，积极应对携号转网挑战， 努力稳定基础业务，规模提升创新业务，扎实推进5G业务创新，驱动整体业务企稳回升。持续深 化与战略投资者的业务和资本合作，纵深推进各领域的创新变革，不断提升企业内生活力和运营 效益，为股东创造更大价值。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 21.15,
+        "index": 29
+    },
+    {
+        "content": "附注 1. EBITDA 反映了加回财务费用、所得税、公允价值变动净损失、营业成本和管理费用及研发费用中的折旧  及摊销以及减去投资收益、其他收益、营业外净收入的净利润。由于电信业是资本密集型产业，资本开支和财务  费用可能对具有类似经营成果的公司年度盈利产生重大影响。因此， 公司认为，对于与公司类似的电信公司而言， EBITDA 有助于对公司经营成果分析。",
+        "style": "header",
+        "type": "content",
+        "font_size": 9.0,
+        "bold": null,
+        "indent": 0.8,
+        "index": 30
+    },
+    {
+        "content": "四、重要事项",
+        "style": "header",
+        "type": "content",
+        "font_size": null,
+        "bold": true,
+        "indent": 0,
+        "index": 31
+    },
+    {
+        "content": "4.1 公司主要会计报表项目、财务指标重大变动的情况及原因 √适用 □不适用",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": -2.6,
+        "index": 32
+    },
+    {
+        "content": "data/cache/tables/027f0c95-a5fc-4d31-97e9-4a626eec7a72.xlsx",
+        "style": null,
+        "type": "tables",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 33
+    },
+    {
+        "content": "使用权资产、租赁负债变动原因：因 2019 年 1 月 1 日起首次执行《企业会计准则第 21 号——租 赁（修订）》，确认使用权资产和租赁负债；",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 34
+    },
+    {
+        "content": "应付职工薪酬变动原因：主要由于计提人工成本随利润增加而增加所致；",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 35
+    },
+    {
+        "content": "应付债券变动原因：主要由于 2019 年 6 月 19 日联通运营公司发行人民币 20 亿元公司债券所致。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 36
+    },
+    {
+        "content": "4.2 重要事项进展情况及其影响和解决方案的分析说明 √适用 □不适用",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": -2.6,
+        "index": 37
+    },
+    {
+        "content": "（1）报告期内 ，公司董事胡晓明先生因工作调动原因，辞去公司董事、董事会发展战略委员 会委员及薪酬与考核委员会委员职务；熊晓鸽先生因个人原因，辞去公司董事、董事会发展战略 委员会委员职务；公司监事林旸川先生因已届退休，辞去公司监事会主席及监事职务。经公司临 时股东大会审议通过，阿里巴巴首席技术官兼阿里云智能事业群总裁张建锋先生获选举为公司董 事，招联消费金融有限公司董事、常务副总经理李翀先生获选举为公司监事。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 16.05,
+        "index": 38
+    },
+    {
+        "content": "报告期内，公司董事、总裁李国华先生因工作职责调整不再兼任公司总法律顾问职务，经公 司董事会审议通过，公司高级副总裁范云军先生兼任公司总法律顾问。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 20.45,
+        "index": 39
+    },
+    {
+        "content": "报告期末至披露日期间，公司董事王路先生因工作变动原因，辞去公司董事、董事会发展战 略委员会委员职务，经董事会审议通过，增补百度首席技术官王海峰先生为公司董事，该议案将 提交公司于适当时候召开的股东大会审议。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 20.85,
+        "index": 40
+    },
+    {
+        "content": "详情请见公司在《中国证券报》《上海证券报》《证券时报》、上海证券交易所网站及公司 网站发布的《第六届董事会第十三次会议决议公告》（公告编号：2019-035）、《关于公司董事 辞任和增补董事的公告》（公告编号：2019-036）、《第六届董事会第十四次会议决议公告》（公 告编号：2019-038）、《关于总法律顾问辞任和聘任总法律顾问的公告》（公告编号：2019-042）、 《第六届监事会第十一次会议决议公告》（公告编号：2019-045）、《关于公司监事辞任和增补 监事的公告》（公告编号：2019-046）、《2019年第一次临时股东大会决议公告》（公告编号：  2019-049）、《第六届董事会第十六次会议决议公告》（公告编号：2019-053）、《关于公司董 事辞任和增补董事的公告》（公告编号：2019-056）。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 21.1,
+        "index": 41
+    },
+    {
+        "content": "（2）报告期内 ，经董事会审议通过，公司控股子公司中国联合网络通信（香港）股份有限公 司之全资附属子公司联通运营公司与中国电信签署《5G网络共建共享框架合作协议书》 ，联通运 营公司将与中国电信在全国范围内合作共建一张5G接入网络。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 15.7,
+        "index": 42
+    },
+    {
+        "content": "详情请见公司在《中国证券报》《上海证券报》《证券时报》、上海证券交易所网站及公司 网站发布的《第六届董事会第十五次会议决议公告》（公告编号：2019-050）、《关于与中国电 信进行5G网络共建共享合作的公告》（公告编号：2019-051）。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 21.1,
+        "index": 43
+    },
+    {
+        "content": "（3）报告期内，经董事会、监事会审议通过，公司限制性股票激励计划首期授予方案第一个 解锁期公司业绩条件达成。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 16.05,
+        "index": 44
+    },
+    {
+        "content": "详情请见公司在《中国证券报》《上海证券报》《证券时报》、上海证券交易所网站及公司 网站发布的《第六届董事会第十四次会议决议公告》（公告编号：2019-038）、《第六届监事会 第十次会议决议公告》（公告编号：2019-039）、《关于限制性股票激励计划首期授予方案第一 个解锁期公司业绩条件达成的公告》（公告编号：2019-041）。",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 21.1,
+        "index": 45
+    },
+    {
+        "content": "4.3 报告期内超期未履行完毕的承诺事项",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 46
+    },
+    {
+        "content": "□适用 √不适用",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 47
+    },
+    {
+        "content": "4.4 预测年初至下一报告期期末的累计净利润可能为亏损或者与上年同期相比发生重大变动的警 示及原因说明",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": -18.05,
+        "index": 48
+    },
+    {
+        "content": "□适用 √不适用",
+        "style": "text",
+        "type": "content",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 49
+    },
+    {
+        "content": "data/cache/tables/3caeb055-d5c7-4cbb-8dd9-b04a2a962f1d.xlsx",
+        "style": null,
+        "type": "tables",
+        "font_size": null,
+        "bold": null,
+        "indent": 0,
+        "index": 50
+    }
+]
