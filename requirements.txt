@@ -4,3 +4,4 @@ asyncio
 pydantic
 python-docx
 python-multipart
+pdfplumber

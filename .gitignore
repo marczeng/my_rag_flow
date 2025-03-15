@@ -1,0 +1,15 @@
+__pycache__
+log
+.idea/
+.DS_Store
+*.pyc
+*.log
+*/__pycache__
+.ipynb_checkpoints
+.coverage*
+~*
+.vscode/
+*.gz
+*.tar
+*.rar
+/data/cache/
