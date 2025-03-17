@@ -155,8 +155,9 @@ class ParserDocx():
                         params[i]["style"] = "text"
         return params
 
-    def main(self):
+    def main(self,use_cache=False):
         from tqdm import tqdm
+        result = {}
         folder_tags = ["AF", "AT", "AW", "AY", "AZ"]
         for tag in folder_tags:
             file_root = "data/docx/{}-folder".format(tag)
@@ -165,11 +166,14 @@ class ParserDocx():
                 file_path = os.path.join(file_root, file)
                 cur_result = self.read2docx(file_path)
                 cur_result = self.judge(cur_result)
-                if not os.path.exists("data/cache/{}-cache".format(tag)):
-                    os.mkdir("data/cache/{}-cache".format(tag))
-                with open("data/cache/{}-cache/{}.json".format(tag, file.split(".")[0]), "w", encoding="utf-8") as ft:
-                    json_data = json.dumps(cur_result, ensure_ascii=False, indent=4)
-                    ft.write(json_data)
+                result[file] = cur_result
+                if use_cache:
+                    if not os.path.exists("data/cache/{}-cache".format(tag)):
+                        os.mkdir("data/cache/{}-cache".format(tag))
+                    with open("data/cache/{}-cache/{}.json".format(tag, file.split(".")[0]), "w", encoding="utf-8") as ft:
+                        json_data = json.dumps(cur_result, ensure_ascii=False, indent=4)
+                        ft.write(json_data)
+        return result
 
 
 

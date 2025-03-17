@@ -29,5 +29,54 @@ def operate_file(filename):
     else:
         raise TypeError("无法处理的类型: 只接受字符串路径或UploadFile对象")
 
+def merge_sub_chunck(file,index,details):
+    if file.startswith("AF"):
+        from src.components.operate.helper import merge_Spread_text, second_judge
+        chunk_result = details[index + 1:]
+        chunk_result = second_judge(chunk_result)
+        chunk_result = merge_Spread_text(chunk_result)
+        return chunk_result
+
+    elif file.startswith("AT"):
+        from src.components.operate.helper import merge_Spread_text,second_judge
+        chunk_result = details[index + 1:]
+        chunk_result = second_judge(chunk_result)
+        chunk_result = merge_Spread_text(chunk_result)
+        return chunk_result
+
+    elif file.startswith("AW"):
+        from src.components.operate.helper import combined_text
+        from src.components.operate.ope_AW import operate
+        chunks_result = details[index + 1:]
+        chunks_result = combined_text(chunks_result)
+        chunks_result = operate(chunks_result)
+        return chunks_result
+
+    elif file.startswith("AY"):
+        from src.components.operate.helper import combined_text
+        from src.components.module.cleaner import filter_redundancy
+        from src.components.operate.ope_AY import operate
+        table_result, chunks_result = operate(index, details)
+        chunks_result = combined_text(chunks_result)
+        cleaner_chunks = []
+        for unit in chunks_result:
+            if filter_redundancy(unit["content"]):
+                continue
+            if unit["type"] == "table":
+                continue
+            cleaner_chunks.append(unit)
+        return cleaner_chunks
+
+    elif file.startswith("AZ"):
+        from src.components.operate.helper import merge_Spread_text
+        from src.components.operate.ope_AZ import second_judge
+        chunk_result = details[index + 1:]
+        chunk_result = second_judge(chunk_result)
+        chunk_result = merge_Spread_text(chunk_result)
+        return chunk_result
+
+    else:
+        raise Exception("Undefined file ....")
+
 
 
