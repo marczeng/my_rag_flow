@@ -10,3 +10,7 @@ transformers
 modelscope
 langchain_community
 pymysql
+sentence_transformers
+ltp
+langchain_openai
+langchain_core

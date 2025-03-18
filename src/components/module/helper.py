@@ -5,7 +5,6 @@
 import re
 import json
 
-
 def get_AY_name(data):
     all_font_size = []
     for item in data:
@@ -18,7 +17,6 @@ def get_AY_name(data):
         if item['font_size'] == max_font_size:
             filename+=item["content"].replace(" ", "")
             index = i
-
     return filename,index
 
 def get_AZ_name(data):
@@ -74,7 +72,6 @@ def get_name_helper(data):
     if temp:
         file_name = file_name[:temp.span()[0]]
     return file_name,right
-
 
 def return_file_name(data,file):
     """

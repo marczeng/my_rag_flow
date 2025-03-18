@@ -31,8 +31,6 @@ def split_with_level(params):
     res = merge_contents(params)
     return res
 
-
-
 def operate(params):
     if not judge_header_isin(params):
         for i,unit in enumerate(params):
