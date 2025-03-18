@@ -75,3 +75,11 @@
 - [Elasticsearch Documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html)
 - [MatrixOne Documentation](https://docs.matrixorigin.io/?spm=5176.28103460.0.0.40f7451ev7aqYj)
 
+## 4、实验过程
+
+**4.1 数据集**
+
+​	本[数据集](https://www.datafountain.cn/competitions/1045)源自CCF大数据与计算智能大赛（CCF BDCI），一项由中国计算机学会自2013年起举办的专注于大数据与人工智能领域的挑战赛事。此次数据集特别由联通数字科技有限公司提供支持，这是一家隶属于中国联通的专业子公司，致力于成为“可信赖的数字化转型专家”。通过整合云计算、大数据、物联网、人工智能等核心技术能力，联通数科为本次大赛提供了宝贵的数据资源。
+
+​	该数据集围绕实际行业应用场景设计，旨在促进前沿技术与行业应用问题的解决，助力产业升级与社会高质量数据人才的培养。具体而言，数据集涵盖了多方面的电信业务场景，包括但不限于用户行为分析、网络优化、服务质量提升等领域，为参赛者提供了丰富的实践素材和挑战机会，以推动技术创新和实际应用解决方案的发展。
+
