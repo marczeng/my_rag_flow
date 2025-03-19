@@ -152,7 +152,7 @@ qwen_max = ChatOpenAI(
     openai_api_base="https://dashscope.aliyuncs.com/compatible-mode/v1"
 )
 
-def judge_question(template,question):
+def ope_question(template,question):
     """
     函数功能：判断当前问题是否可以拆分
     :param question:
@@ -166,54 +166,6 @@ def judge_question(template,question):
     res = chain.invoke({"question": question})
     return res
 
-if __name__ == '__main__':
-
-    from tqdm import tqdm
-    # result = []
-    # with open("data/类别标注.jsonl",'r',encoding="utf-8") as fl:
-    #     for line in tqdm(fl.readlines()):
-    #         line = json.loads(line)
-    #         # print(f"question is :\n\t\t{line['text']}")
-    #         # print(f"True labels is \n\t\t{line['label']}")
-    #         res = judge_question(rewrite_template,line["text"])
-    #         # print(f"Predict labels is {res}")
-    #         result.append(
-    #             {
-    #                 "question": line['text'],
-    #                 "True":line['label'],
-    #                 "predict":res
-    #             }
-    #
-    #         )
-    # with open("data/rewrite_question/judge_question.json","w",encoding="utf-8") as ft:
-    #     json_data = json.dumps(result,ensure_ascii=False,indent=4)
-    #     ft.write(json_data)
-    result = []
-    columns = ["问题","人工","预测","转述"]
-    with open("data/rewrite_question/judge_question.json","r",encoding="utf-8") as fl:
-        data = json.load(fl)
-        for elem in tqdm(data):
-            if elem["predict"] == "False":
-                result.append(
-                    [
-                        elem["question"],
-                        elem["True"],
-                        "不可拆分",
-                        [elem["question"]]
-                    ]
-                )
-            else:
-                result.append(
-                    [
-                        elem["question"],
-                        elem["True"],
-                        "可拆分",
-                        judge_question(rewrite_template,elem["question"])
-                    ]
-                )
-
-    dt = pd.DataFrame(result,columns=columns)
-    dt.to_excel("data/rewrite_question/rewrite.xlsx",index=False)
 
 
 
