@@ -83,3 +83,15 @@
 
 ​	该数据集围绕实际行业应用场景设计，旨在促进前沿技术与行业应用问题的解决，助力产业升级与社会高质量数据人才的培养。具体而言，数据集涵盖了多方面的电信业务场景，包括但不限于用户行为分析、网络优化、服务质量提升等领域，为参赛者提供了丰富的实践素材和挑战机会，以推动技术创新和实际应用解决方案的发展。
 
+**4.2 创建表**
+
+```python
+from src.components.module.MO import MatrixOne
+
+if __name__ == '__main__':
+    func = MatrixOne()
+    func._create_database_document()
+    func._create_database_split_document()
+
+```
+
