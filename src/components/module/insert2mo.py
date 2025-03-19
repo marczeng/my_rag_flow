@@ -50,7 +50,7 @@ def insertAF2mo(file_name, file, params,method="samparasplitter"):
 def insertAT2mo(file_name, file, params, method="samparasplitter"):
     mo = MatrixOne()
     emb_func = Embedding()
-
+    params = split_with_level(params)
     if method == "samparasplitter":
         splitter = SemanticParagraphSplitter()
     else:
