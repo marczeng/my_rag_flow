@@ -81,3 +81,8 @@ file_name_embedding vecf32(1024)
         result = [list(item) for item in result]
 
         return result
+
+if __name__ == '__main__':
+    func = MatrixOne()
+    func._create_database_document()
+    func._create_database_split_document()
