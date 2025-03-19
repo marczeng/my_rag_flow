@@ -17,22 +17,40 @@ class MatrixOne:
         self.cursor = self.db.cursor()
 
     def _create_database_document(self):
-        instruction = """CREATE TABLE handx(
+        instruction = """CREATE TABLE chunk_table(
 id int(11) AUTO_INCREMENT PRIMARY KEY,
 file VARCHAR NOT NULL,
 file_name VARCHAR NOT NULL,
 chunks LONGTEXT NOT NULL,
-sub_chunks LONGTEXT NOT NULL,
 category VARCHAR NOT NULL,
 title VARCHAR NOT NULL,
 address VARCHAR NOT NULL,
 indexs VARCHAR NOT NULL,
-sub_indexs VARCHAR NOT NULL,
 chunks_embedding vecf32(1024),
 sub_chunks_embedding vecf32(1024),
 title_embedding vecf32(1024),
 file_name_embedding vecf32(1024)
 );"""
+        self.cursor.execute(instruction)
+        self.db.commit()
+
+    def _create_database_split_document(self):
+        instruction = """CREATE TABLE sub_chunk_table(
+        id int(11) AUTO_INCREMENT PRIMARY KEY,
+        file VARCHAR NOT NULL,
+        file_name VARCHAR NOT NULL,
+        chunks LONGTEXT NOT NULL,
+        sub_chunks LONGTEXT NOT NULL,
+        category VARCHAR NOT NULL,
+        title VARCHAR NOT NULL,
+        address VARCHAR NOT NULL,
+        indexs VARCHAR NOT NULL,
+        sub_indexs VARCHAR NOT NULL,
+        chunks_embedding vecf32(1024),
+        sub_chunks_embedding vecf32(1024),
+        title_embedding vecf32(1024),
+        file_name_embedding vecf32(1024)
+        );"""
         self.cursor.execute(instruction)
         self.db.commit()
 
