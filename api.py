@@ -1,79 +1,99 @@
 # encoding : utf-8 -*-                            
 # @author  : 冬瓜                              
 # @mail    : dylan_han@126.com    
-# @Time    : 2025/3/13 14:37
+# @Time    : 2025/3/20 14:36
+import json
 import uvicorn
 from typing import Optional, Union, List
-from fastapi import FastAPI, File, Form, UploadFile, HTTPException
 
-from src.utils.data_manager import (
-    ParserFileRequest,
-    ParserFileResponse
-)
+from fastapi import FastAPI, Depends, HTTPException, status
+from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
+
+from src.utils.data_manager import QueryData
 from src.utils.logger import logger
-from src.components.main import operate_file
+from src.components.module.Search import Search
+from src.components.module.Reranker import BgeRerank
 
 app = FastAPI()
+security = HTTPBearer()
+# 假设这是你需要验证的正确 api-key
+valid_api_key = "0d9875b8-6c73-480e-8179-1dfe896dce21"
+
+reranker = BgeRerank()
+search_func = Search()
 
 
-class RagFlow():
+def validate_api_key(credentials: HTTPAuthorizationCredentials = Depends(security)):
+    # 检查凭证是否有效
+    if credentials.scheme != "Bearer" or credentials.credentials != valid_api_key:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Invalid authentication credentials",
+        )
+    return credentials
+
+
+def filter_repeat(params):
+    result = []
+    dic = {}
+    for unit in params:
+        cur_chunk = unit["chunks"].replace(" ", "")
+        if cur_chunk not in dic:
+            dic[cur_chunk] = 1
+            result.append(unit)
+    return result
+
+
+def add_score(search_result, rerank_result):
+    for i, unit in enumerate(search_result):
+        unit["score"] = rerank_result[i]
+        search_result[i] = unit
+    return search_result
+
+
+class RagFlow:
     namespace = "/agent"
+    patterns = "(“.*?”)|(《.*?》)"
+    result = []
 
-    # 表单类接口
-    @app.post(namespace+"/parser_form",response_model=ParserFileResponse)
-    async def parser_form(
-            sessionId: str = Form(...),
-            filename: Optional[str] = Form(None),
-            filenames: Optional[List[str]] = Form(None),  # 处理多个文件名的情况
-            file: Optional[UploadFile] = File(None),  # 单个上传文件
-            files: Optional[List[UploadFile]] = File(None)  # 多个上传文件
-    ):
-        """
-        当前版本支持传入的参数：
-            - file_path or [file_path1, file_path2, ...]
-            - 单个上传文件或多个上传文件
-        :return:
-        """
-        if filename:
-            # 如果传递了单个文件名
-            logger.info(f"sessionId is {sessionId}, filename is {filename}")
-            response = operate_file(filename)
-            return ParserFileResponse(sessionId=sessionId, response=response)
+    @staticmethod
+    @app.post(f"{namespace}/retrieval")
+    async def get_data(request: QueryData, auth: HTTPAuthorizationCredentials = Depends(validate_api_key)):
+        # 在这里处理你的逻辑
+        logger.info(f"Knowlodge ID is {request.knowledge_id}, query is {request.query}")
+        knowledge_id = request.knowledge_id
+        query = request.query
+        retrieval_setting = request.retrieval_setting
+        top_k = retrieval_setting.top_k
+        score_threshold = retrieval_setting.score_threshold
+        logger.info(f"knowledge_id: {knowledge_id}, query: {query}, top_k: {top_k}, score_threshold: {score_threshold}")
+        # 返回数据
+        bm25_result = search_func.get_bm25_result(query)
+        sub_chunks_result = search_func.get_subchunk_result(query)
+        cur_question_result = bm25_result + sub_chunks_result
+        cur_question_result = filter_repeat(cur_question_result)
+        _reranker_result = reranker.get_result(query, cur_question_result)
+        reranker_result = add_score(cur_question_result, _reranker_result)
 
-        elif file:
-            # 如果传递了单个上传文件
-            logger.info(f"sessionId is {sessionId}, uploaded file name is {file.filename}")
-            file_path = f"data/temp/{file.filename}"
-            with open(file_path, "wb") as file_object:
-                file_object.write(await file.read())
-            response = operate_file(file_path)
-            return ParserFileResponse(sessionId=sessionId, response=response)
+        # 处理成标准的格式返回
+        result = []
+        for i, unit in enumerate(reranker_result):
+            logger.info(f"unit: {unit}")
+            if i >= top_k:
+                break
+            elem = {
+                "metadata": {
+                    "path": unit["source"],
+                    "description": unit["file_name"]
+                },
+                "score": unit["score"],
+                "title": unit["title"],
+                "content": unit["chunks"],
+                "index": i + 1
+            }
+            result.append(elem)
 
-        else:
-            raise HTTPException(status_code=400, detail="Invalid input type for filename")
-
-    # json格式的接口
-    @app.post(namespace + "/parser", response_model=ParserFileResponse)
-    def parser(request: ParserFileRequest):
-        """
-        当前版本支持传入的参数：
-            file_path or [file_path1, file_path2, ...]
-        :return:
-        """
-        sessionId = request.sessionId
-        filename = request.filename
-        if isinstance(filename, str):
-            logger.info(f"sessionId is {sessionId}, filename is {filename}")
-            response = operate_file(filename)
-            return ParserFileResponse(sessionId=sessionId,response=response)
-
-        else:
-            file_details = '\n'.join(filename)
-            logger.info(f"sessionId is {sessionId}, filename is \n{file_details}")
-            response = operate_file(filename)
-            return ParserFileResponse(sessionId=sessionId, response=response)
-
-
+        return {"records": result}
 
 
 if __name__ == "__main__":

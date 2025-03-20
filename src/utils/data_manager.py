@@ -14,3 +14,12 @@ class ParserFileResponse(BaseModel):
 class ParserFileRequest(BaseModel):
     sessionId: str
     filename: Union[str, List]
+
+class RetrievalSetting(BaseModel):
+    top_k: int
+    score_threshold: float
+
+class QueryData(BaseModel):
+    knowledge_id: str
+    query: str
+    retrieval_setting: RetrievalSetting

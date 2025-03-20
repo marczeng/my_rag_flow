@@ -25,7 +25,8 @@ class BgeRerank:
         with torch.no_grad():
             inputs = self.tokenizer(pairs, padding=True, truncation=True, return_tensors='pt',
                                     max_length=self.max_length)
-            # inputs = {k: v.cuda() for k, v in inputs.items()}
+            if torch.cuda.is_available():
+                inputs = {k: v.cuda() for k, v in inputs.items()}
             inputs = {k: v for k, v in inputs.items()}
             scores = self.model(**inputs, return_dict=True).logits.view(-1, ).float().cpu().tolist()
             return scores
