@@ -22,6 +22,7 @@ def add_score(search_result,rerank_result):
     for i,unit in enumerate(search_result):
         unit["score"] = rerank_result[i]
         search_result[i] = unit
+    search_result = sorted(search_result, key=lambda x: x["score"], reverse=True)
     return search_result
 
 if __name__ == '__main__':
