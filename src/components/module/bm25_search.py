@@ -5,7 +5,7 @@
 from tqdm import tqdm
 from transformers import AutoTokenizer
 
-from src.components.module.MO import MatrixOne
+from src.components.module.mo import MatrixOne
 
 from langchain.docstore.document import Document
 from langchain_community.retrievers.bm25 import BM25Retriever

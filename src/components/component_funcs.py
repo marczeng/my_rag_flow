@@ -3,7 +3,7 @@
 # @mail    : dylan_han@126.com    
 # @Time    : 2025/3/13 15:33
 
-from src.components.parser_docx.main import ParserDocx
+from src.components.parser_docx.process_docx import ParserDocx
 from src.components.parser_docx.doc2docx import convert_doc_to_docx
 
 def operate_file(filename):
@@ -31,32 +31,34 @@ def operate_file(filename):
 
 def merge_sub_chunck(file,index,details):
     if file.startswith("AF"):
-        from src.components.module.helper import merge_Spread_text, second_judge
+        from src.components.module.helper import merge_spread_text, second_judge
         chunk_result = details[index + 1:]
         chunk_result = second_judge(chunk_result)
-        chunk_result = merge_Spread_text(chunk_result)
+        chunk_result = merge_spread_text(chunk_result)
         return chunk_result,None
 
     elif file.startswith("AT"):
-        from src.components.module.helper import merge_Spread_text,second_judge
+        from src.components.module.helper import merge_spread_text,second_judge
         chunk_result = details[index + 1:]
         chunk_result = second_judge(chunk_result)
-        chunk_result = merge_Spread_text(chunk_result)
+        chunk_result = merge_spread_text(chunk_result)
         return chunk_result,None
 
     elif file.startswith("AW"):
         from src.components.module.helper import combined_text
-        from src.components.operate.ope_AW import operate
+        from src.components.parser_docx.operation import OperationAW
+        ope_aw = OperationAW()
         chunks_result = details[index + 1:]
         chunks_result = combined_text(chunks_result)
-        chunks_result = operate(chunks_result)
+        chunks_result = ope_aw.operate(chunks_result)
         return chunks_result,None
 
     elif file.startswith("AY"):
         from src.components.module.helper import combined_text
         from src.components.module.cleaner import filter_redundancy
-        from src.components.operate.ope_AY import operate
-        table_result, chunks_result = operate(index, details)
+        from src.components.parser_docx.operation import OperationAY
+        ope_ay = OperationAY()
+        table_result, chunks_result = ope_ay.operate(index, details)
         chunks_result = combined_text(chunks_result)
         cleaner_chunks = []
         for unit in chunks_result:
@@ -68,11 +70,12 @@ def merge_sub_chunck(file,index,details):
         return cleaner_chunks,table_result
 
     elif file.startswith("AZ"):
-        from src.components.module.helper import merge_Spread_text
-        from src.components.operate.ope_AZ import second_judge
+        from src.components.module.helper import merge_spread_text
+        from src.components.parser_docx.operation import OperationAZ
+        ope_az = OperationAZ()
         chunk_result = details[index + 1:]
-        chunk_result = second_judge(chunk_result)
-        chunk_result = merge_Spread_text(chunk_result)
+        chunk_result = ope_az.second_judge(chunk_result)
+        chunk_result = merge_spread_text(chunk_result)
         return chunk_result,None
 
     else:

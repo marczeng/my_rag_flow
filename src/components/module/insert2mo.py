@@ -4,13 +4,15 @@
 # @Time    : 2025/3/17 17:04
 import pandas as pd
 
-from src.components.module.MO import MatrixOne
+from src.components.module.mo import MatrixOne
 from src.components.module.embedding import Embedding
-from src.components.operate.ope_AW import split_with_level
-from src.components.module.TextSplit import SemanticParagraphSplitter
+from src.components.parser_docx.operation import BaseOperation
+from src.components.module.text_split import SemanticParagraphSplitter
 from src.components.module.cleaner import filter_redundancy,filter_text
 from src.components.module.table_message import table_message
-from tqdm import tqdm
+
+bo = BaseOperation()
+
 
 def insertAF2mo(file_name, file, params,method="samparasplitter"):
     mo = MatrixOne()
@@ -21,7 +23,7 @@ def insertAF2mo(file_name, file, params,method="samparasplitter"):
     else:
         splitter = SemanticParagraphSplitter()
 
-    params = split_with_level(params)
+    params = bo.split_with_level(params)
     file_name = file_name.replace(" ", "")
     for k,v in params.items():
         title = k if k != "ROOT" else ""
@@ -51,7 +53,7 @@ def insertAF2mo(file_name, file, params,method="samparasplitter"):
 def insertAT2mo(file_name, file, params, method="samparasplitter"):
     mo = MatrixOne()
     emb_func = Embedding()
-    params = split_with_level(params)
+    params = bo.split_with_level(params)
 
     if method == "samparasplitter":
         splitter = SemanticParagraphSplitter()
@@ -127,7 +129,7 @@ def insertAW2mo(file_name,file,params, method="samparasplitter"):
 
 def insertAY2mo(file_name, file, table_result, chunck_result, own=True,method="samparasplitter"):
     mo = MatrixOne()
-    chunck_result = split_with_level(chunck_result)
+    chunck_result = bo.split_with_level(chunck_result)
     emb_func = Embedding()
 
     if method == "samparasplitter":
@@ -202,7 +204,7 @@ def insertAY2mo(file_name, file, table_result, chunck_result, own=True,method="s
 
 def insertAZ2mo(file_name,file,params,method="samparasplitter"):
     mo = MatrixOne()
-    params = split_with_level(params)
+    params = bo.split_with_level(params)
     emb_func = Embedding()
 
     if method == "samparasplitter":

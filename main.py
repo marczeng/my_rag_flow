@@ -2,12 +2,10 @@
 # @author  : 冬瓜                              
 # @mail    : dylan_han@126.com    
 # @Time    : 2025/3/13 15:21
-import json
-
-from src.components.parser_docx.main import ParserDocx
+from src.components.parser_docx.process_docx import ParserDocx
 from src.components.module.helper import return_file_name
 from src.utils.logger import logger
-from src.components.main import merge_sub_chunck
+from src.components.component_funcs import merge_sub_chunck
 from src.components.module.insert2mo import insert2mo
 
 if __name__ == '__main__':

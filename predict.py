@@ -2,8 +2,8 @@
 # @author  : 冬瓜                              
 # @mail    : dylan_han@126.com    
 # @Time    : 2025/3/19 13:35
-from src.components.module.Search import Search
-from src.components.module.Reranker import BgeRerank
+from src.components.module.search import Search
+from src.components.module.reranker import BgeRerank
 
 patterns= "(“.*?”)|(《.*?》)"
 result = []
@@ -44,11 +44,3 @@ if __name__ == '__main__':
             s = input("push :")
             if s == "q":
                 break
-
-
-
-
-
-
-
-

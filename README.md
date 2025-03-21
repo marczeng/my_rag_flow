@@ -86,7 +86,7 @@
 **4.2 创建表**
 
 ```python
-from src.components.module.MO import MatrixOne
+from src.components.module.mo import MatrixOne
 
 if __name__ == '__main__':
     func = MatrixOne()

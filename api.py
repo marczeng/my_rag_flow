@@ -2,17 +2,15 @@
 # @author  : 冬瓜                              
 # @mail    : dylan_han@126.com    
 # @Time    : 2025/3/20 14:36
-import json
 import uvicorn
-from typing import Optional, Union, List
 
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 
 from src.utils.data_manager import QueryData
 from src.utils.logger import logger
-from src.components.module.Search import Search
-from src.components.module.Reranker import BgeRerank
+from src.components.module.search import Search
+from src.components.module.reranker import BgeRerank
 
 app = FastAPI()
 security = HTTPBearer()

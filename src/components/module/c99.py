@@ -3,7 +3,6 @@
 # @mail    : dylan_han@126.com    
 # @Time    : 2025/3/18 11:42
 # A python implementation of C99 algorithm for topic segmentation
-from collections import Counter
 import numpy as np
 
 

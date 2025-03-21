@@ -2,7 +2,7 @@
 # @author  : 冬瓜                              
 # @mail    : dylan_han@126.com    
 # @Time    : 2025/3/19 14:47
-from src.components.module.MO import MatrixOne
+from src.components.module.mo import MatrixOne
 from src.components.module.embedding import Embedding
 from src.components.module.bm25_search import BM25
 

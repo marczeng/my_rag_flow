@@ -3,7 +3,7 @@
 # @mail    : dylan_han@126.com    
 # @Time    : 2025/3/17 16:10
 import re
-import json
+
 
 def get_AY_name(data):
     all_font_size = []
@@ -106,7 +106,6 @@ def combined_text(params):
             result.append(head)
             i += 1
         else:
-            k = 1
             tail = params[i + 1]
             if re.search(
                     "(^第[一二三四五六七]节)|(^[0-9]{1})|(^单位：)|(^单位:)|(^□适用)|(^图注)|(^√适用)|(^第[一二三四五六七]部分)|(^（[一二三四五六七]）)|(^[一二三四五六七]、)|(^□是)|(^√是)|(^\([一二三四五六七]\))|(^[一二三四五六七])",
@@ -132,7 +131,7 @@ def combined_text(params):
         i += 1
     return result
 
-def merge_Spread_text(params):
+def merge_spread_text(params):
     """
     合并分页的文本
     :param params:
