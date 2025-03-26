@@ -5,6 +5,7 @@
 import uuid
 from datetime import datetime
 
+
 def get_time(days=True):
     now = datetime.now()
     if days:
@@ -19,3 +20,5 @@ def _judge_heading_isin(param):
         if "Heading" in unit[-1]:
             return True
     return False
+
+

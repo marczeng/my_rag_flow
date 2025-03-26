@@ -15,3 +15,5 @@ log
 *.rar
 /data/cache/
 /ckpt
+/data/files
+/data/sql
