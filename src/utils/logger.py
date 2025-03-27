@@ -2,10 +2,6 @@
 # @author  : 冬瓜                              
 # @mail    : dylan_han@126.com    
 # @Time    : 2025/3/13 15:05
-# encoding : utf-8 -*-
-# @author  : 冬瓜
-# @mail    : dylan_han@126.com
-# @Time    : 2024/8/22 11:05
 import os
 import datetime
 import logging
