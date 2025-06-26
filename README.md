@@ -170,13 +170,13 @@ python quality_evaluate.py
 
 召回率是衡量检索系统找到所有相关文档的能力，其定义为：
 $$
-\text{Recall} = \frac{\text{检索到的相关文档数}}{\text{所有相关文档数}}
+{Recall} = \frac{检索到的相关文档数}{所有相关文档数}
 $$
 **🔹 Recall@K**
 
 Recall@K 是召回率的一个变种，只考虑系统返回的前 K 个结果：
 $$
-\text{Recall@K} = \frac{\text{前 K 个结果中相关文档的数量}}{\text{所有相关文档的数量}}
+{Recall@K} = \frac{前 K 个结果中相关文档的数量}{所有相关文档的数量}
 $$
 **（3）实验结果**
 
@@ -191,7 +191,7 @@ $$
 对于任意问题，采用如下公式评分：
 
 $$
-\text{score}_i = \left[ \text{weight}_{i}^{kw} \times \text{score}_{i}^{kw} + (1 - \text{weight}_{i}^{kw}) \times \text{score}_{i}^{es} \right] \times p_i
+{score}_i =[{weight}_{i}^{kw}*{score}_{i}^{kw} + (1 -{weight}_{i}^{kw})*{score}_{i}^{es}]*p_i
 $$
 
 | 公式                     | 解释                                                         |
@@ -199,7 +199,7 @@ $$
 | $\text{score}_{i}^{kw}$  | 关键词评分。出题方为每题标注了若干答案关键词，选手提交文件的answer列中准确包含所有关键词得1分，包含部分关键词则按比例得分。 |
 | $\text{score}_{i}^{es}$  | 向量相似度评分。出题方为每题标注了答案所在文本块，根据选手提交文件中embedding列与标注文本块向量表示的余弦相似度打分，完全一致得1分。 |
 | $\text{weight}_{i}^{kw}$ | 关键词评分占总评分的权重。通常为0.1至0.9之间的权重，表格查数问题的关键词得分权重为1。 |
-| $p_i$                    | 长度惩罚项。根据选手 answer 的长度 $\text{len}_{i}^{\text{sub}}$ 与标注文本块长度 $$\text{len}_{i}^{\text{std}}$$ 确定, <br>$$\text{len}_{i}^{\text{sub}} \leq 1.5\text{len}_{i}^{\text{std}}$$ 时该项为 1; <br>$$1.5\text{len}_{i}^{\text{std}} < \text{len}_{i}^{\text{sub}} \leq 2.5\text{len}_{i}^{\text{std}}$$ 时该项为 0.9; <br>$$\text{len}_{i}^{\text{sub}} > 2.5\text{len}_{i}^{\text{std}}$$ 时该项为 0.75。 |
+| $p_i$                    | 长度惩罚项。根据选手 answer 的长度 ${len}_{i}^{{sub}}$ 与标注文本块长度 $${len}_{i}^{{std}}$$ 确定, <br>$${len}_{i}^{{sub}} \leq 1.5{len}_{i}^{{std}}$$ 时该项为 1; <br>$$1.5{len}_{i}^{{std}} < {len}_{i}^{{sub}} \leq 2.5{len}_{i}^{{std}}$$ 时该项为 0.9; <br>$${len}_{i}^{{sub}} > 2.5{len}_{i}^{{std}}$$ 时该项为 0.75。 |
 
 
 
