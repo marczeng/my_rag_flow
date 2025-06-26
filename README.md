@@ -75,23 +75,166 @@
 - [Elasticsearch Documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html)
 - [MatrixOne Documentation](https://docs.matrixorigin.io/?spm=5176.28103460.0.0.40f7451ev7aqYj)
 
+**3.6 配置环境**
+
+```bash
+pip install .
+```
+
 ## 4、实验过程
 
-**4.1 数据集**
+### **4.1 数据集**
 
 ​	本[数据集](https://www.datafountain.cn/competitions/1045)源自CCF大数据与计算智能大赛（CCF BDCI），一项由中国计算机学会自2013年起举办的专注于大数据与人工智能领域的挑战赛事。此次数据集特别由联通数字科技有限公司提供支持，这是一家隶属于中国联通的专业子公司，致力于成为“可信赖的数字化转型专家”。通过整合云计算、大数据、物联网、人工智能等核心技术能力，联通数科为本次大赛提供了宝贵的数据资源。
 
 ​	该数据集围绕实际行业应用场景设计，旨在促进前沿技术与行业应用问题的解决，助力产业升级与社会高质量数据人才的培养。具体而言，数据集涵盖了多方面的电信业务场景，包括但不限于用户行为分析、网络优化、服务质量提升等领域，为参赛者提供了丰富的实践素材和挑战机会，以推动技术创新和实际应用解决方案的发展。
 
-**4.2 创建表**
+### **4.2 启动服务**
 
-```python
-from src.components.module.mo import MatrixOne
-
-if __name__ == '__main__':
-    func = MatrixOne()
-    func._create_database_document()
-    func._create_database_split_document()
-
+```bash
+python src/app.py
 ```
 
+[上传文件](request_addfile_example.py)
+
+```python
+import requests
+import json
+import os
+
+# 服务地址
+API_URL = "http://localhost:8001/api/v1/knowledge/generate"
+
+"""
+sessionId = request.sessionId,
+input_files = request.input_files,
+vec_db_category = request.vec_db_category,
+file_type = request.file_type,
+file_extension = request.file_extension,
+embedding_model_name = request.embedding_model_name
+"""
+
+for tag in ["AF","AT","AW","AY","AZ"]:
+
+    file_list = os.listdir("data/docx2/{}-folder".format(tag))
+
+    for i,file in enumerate(file_list):
+        file_path = os.path.join("data/docx2/{}-folder".format(tag),file)
+
+        # 构造请求数据
+        payload = {
+            "sessionId": "user_{}".format(i),
+            "input_files":file_path,
+            "vec_db_category": "matrixone",
+            "cache": True,
+            "file_type": tag,
+            "file_extension": "docx",
+            "embedding_model_name": "bge"
+        }
+
+        # 发送 POST 请求
+        response = requests.post(
+            API_URL,
+            headers={"Content-Type": "application/json"},
+            data=json.dumps(payload)
+        )
+
+        # 输出响应结果
+        print("Status Code:", response.status_code)
+        print("Response Body:", response.json())
+```
+
+### **4.3 评估结果**
+
+```bash
+# 生成中间缓存文件
+python eval.py
+
+# 计算最终分数结果
+python quality_evaluate.py
+```
+
+#### **4.3.1 文件检索评估**
+
+**📊 Recall@K（召回率@K）算法介绍**
+
+**（1）概念简介**
+
+在信息检索与推荐系统中，**Recall@K（召回率@K）** 是衡量系统在前 K 个返回结果中能覆盖多少相关项目的一个重要指标。
+
+它结合了经典的“召回率”思想，并将其限制在前 K 个结果中进行评估，特别适用于推荐系统、搜索引擎等场景。
+
+**（2）定义**
+
+**🔹 召回率（Recall）**
+
+召回率是衡量检索系统找到所有相关文档的能力，其定义为：
+$$
+\text{Recall} = \frac{\text{检索到的相关文档数}}{\text{所有相关文档数}}
+$$
+**🔹 Recall@K**
+
+Recall@K 是召回率的一个变种，只考虑系统返回的前 K 个结果：
+$$
+\text{Recall@K} = \frac{\text{前 K 个结果中相关文档的数量}}{\text{所有相关文档的数量}}
+$$
+**（3）实验结果**
+
+|          | k=1  | k=2  | k=3  |
+| -------- | ---- | ---- | ---- |
+| Recall@K | 0.84 | 0.89 | 0.94 |
+
+#### **4.3.2 评测分数评估**
+
+实验整体评测的分数是：0.7249255620283581，评测规则如下：
+
+对于任意问题，采用如下公式评分：
+
+$$
+\text{score}_i = \left[ \text{weight}_{i}^{kw} \times \text{score}_{i}^{kw} + (1 - \text{weight}_{i}^{kw}) \times \text{score}_{i}^{es} \right] \times p_i
+$$
+
+| 公式                     | 解释                                                         |
+| ------------------------ | ------------------------------------------------------------ |
+| $\text{score}_{i}^{kw}$  | 关键词评分。出题方为每题标注了若干答案关键词，选手提交文件的answer列中准确包含所有关键词得1分，包含部分关键词则按比例得分。 |
+| $\text{score}_{i}^{es}$  | 向量相似度评分。出题方为每题标注了答案所在文本块，根据选手提交文件中embedding列与标注文本块向量表示的余弦相似度打分，完全一致得1分。 |
+| $\text{weight}_{i}^{kw}$ | 关键词评分占总评分的权重。通常为0.1至0.9之间的权重，表格查数问题的关键词得分权重为1。 |
+| $p_i$                    | 长度惩罚项。根据选手 answer 的长度 $\text{len}_{i}^{\text{sub}}$ 与标注文本块长度 $\text{len}_{i}^{\text{std}}$ 确定, <br>$\text{len}_{i}^{\text{sub}} \leq 1.5\text{len}_{i}^{\text{std}}$ 时该项为 1; <br>$1.5\text{len}_{i}^{\text{std}} < \text{len}_{i}^{\text{sub}} \leq 2.5\text{len}_{i}^{\text{std}}$ 时该项为 0.9; <br>$\text{len}_{i}^{\text{sub}} > 2.5\text{len}_{i}^{\text{std}}$ 时该项为 0.75。 |
+
+
+
+## 5、后续工作
+
+目前系统已初步实现基于文本内容的检索与问答能力，但仍在持续迭代优化中。为提升系统的全面性、准确性与实用性，未来将从以下几个方面进行功能拓展和技术升级：
+
+### ✅ 当前待完善内容
+
+- **表格数据检索能力尚未接入**：当前系统主要面向纯文本内容进行处理，暂未支持对表格结构化数据的有效检索。
+- **PDF等复杂格式解析能力缺失**：系统尚不支持对 PDF 等非纯文本格式文件的智能解析与内容提取。
+
+### 🚀 后续重点开发方向
+
+#### （1）多模态内容处理能力增强
+
+- 引入 **表格识别与结构化解析模块**，实现对表格字段、行列关系的理解与检索；
+- 支持 **PDF 文件解析**，包括文字提取、图表识别、表格还原等功能，提升多源文档的兼容性与可用性。
+
+#### （2）RAG（Retrieval-Augmented Generation）技术体系完善
+
+未来将逐步引入以下关键技术模块，构建更强大、灵活的智能检索与生成体系：
+
+| 模块                    | 功能说明                                                     |
+| ----------------------- | ------------------------------------------------------------ |
+| **多种 Embedding 模型** | 接入如 BERT、Sentence-BERT、ChatGLM-Embedding、Contriever 等不同模型，提升向量表示的多样性与语义匹配精度 |
+| **多种召回机制**        | 实现混合召回策略，包括关键词召回、向量召回、图谱召回、协同过滤召回等，提升召回覆盖率和相关性 |
+| **多种检索算法**        | 支持 BM25、ANN（Approximate Nearest Neighbor）、FAISS、Milvus、Hybrid Search 等主流检索算法 |
+| **多种文本切分算法**    | 针对长文本内容，引入滑动窗口、语义边界分割、段落级切分等多种文本划分策略，提升上下文理解与检索效果 |
+
+#### （3）可扩展架构设计
+
+- 构建模块化、插件式的 RAG 技术框架，便于快速集成新模型、新算法；
+- 支持动态配置 embedding 模型、召回策略、排序模型等关键组件，满足不同场景下的业务需求。
+
+------
+
+通过以上持续迭代与技术深化，平台将在未来具备更强的通用性和适应性，能够更好地服务于多样化的知识管理、智能问答、辅助决策等应用场景。
