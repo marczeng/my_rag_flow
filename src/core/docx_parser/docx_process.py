@@ -15,12 +15,13 @@ from docx.oxml.text.paragraph import CT_P
 import pandas as pd
 from src.core.utils.utils import get_uuid
 from src.core.utils.ocr import image_to_text as ocr_image_to_text
+from src.core.utils.table_parser import TableParser
 
 from tqdm import tqdm
 
 class ParserDocx():
     def __init__(self):
-        ...
+        self._table_parser = TableParser()
 
     def is_image(self,graph: Paragraph, doc: Document):
         images = graph._element.xpath('.//pic:pic')  # 获取所有图片
@@ -77,8 +78,11 @@ class ParserDocx():
         df.to_excel(md, index=False)
         return md
 
-    def convert_rows_to_md(self, rows):
-        df = pd.DataFrame(rows[1:], columns=rows[0])
+    def convert_rows_to_md(self, rows, structured: bool = False):
+        """Return structured table data or path to an Excel file."""
+        df = self._table_parser.to_dataframe(rows)
+        if structured:
+            return self._table_parser.to_records(rows)
         if not os.path.exists("data/cache/tables"):
             os.makedirs("data/cache/tables", exist_ok=True)
         md = "data/cache/tables/{}.xlsx".format(get_uuid())
@@ -98,7 +102,7 @@ class ParserDocx():
         header2 = [cell.text.strip() for cell in table2.rows[0].cells]
         return header1 == header2
 
-    def read2docx(self,docx_file):
+    def read2docx(self, docx_file: str, structured: bool = False):
         result = []
         doc = docx.Document(docx_file)
         parts = list(self.iter_block_items(doc))
@@ -163,7 +167,7 @@ class ParserDocx():
                         next_rows = next_rows[1:]
                     rows.extend(next_rows)
                     j += 1
-                md_text = self.convert_rows_to_md(rows)
+                md_text = self.convert_rows_to_md(rows, structured=structured)
                 paragraph = table
                 description = "tables"
                 data = {"content": md_text, "style": None, "type": "tables", "font_size": None,
@@ -206,7 +210,7 @@ class ParserDocx():
                         params[i]["style"] = "text"
         return params
 
-    def main(self,state):
+    def main(self, state, structured: bool = False):
         result = {}
         tag = state["file_type"]
         file_list = state["input_files"] if isinstance(state["input_files"],list) else [state["input_files"]]
@@ -214,7 +218,7 @@ class ParserDocx():
         use_cache = state["cache"]
         for file_path in tqdm(file_list, desc="处理 {} 文件中".format(tag)):
             
-            cur_result = self.read2docx(file_path)
+            cur_result = self.read2docx(file_path, structured=structured)
             cur_result = self.judge(cur_result)
             result[file_path] = cur_result
             if use_cache:
