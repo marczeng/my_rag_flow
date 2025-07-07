@@ -2,6 +2,7 @@ import os
 import sys
 import docx
 from PIL import Image, ImageDraw
+from unittest.mock import patch
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
@@ -28,6 +29,8 @@ def test_image_extraction(tmp_path):
     create_doc_with_image(str(doc_file), str(img_file))
 
     parser = ParserDocx()
-    result = parser.read2docx(str(doc_file))
+    with patch("src.core.utils.ocr.image_to_text", return_value="Hello"), \
+         patch("src.core.docx_parser.docx_process.ocr_image_to_text", return_value="Hello"):
+        result = parser.read2docx(str(doc_file))
     image_texts = [r["content"] for r in result if r.get("style") == "image"]
     assert any("hello" in txt.lower() for txt in image_texts)

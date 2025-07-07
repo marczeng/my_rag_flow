@@ -1,7 +1,10 @@
 import os
 from io import BytesIO
 from PIL import Image
-import pytesseract
+try:
+    import pytesseract
+except Exception:  # pragma: no cover - optional dependency
+    pytesseract = None
 from .utils import get_uuid
 
 
@@ -13,6 +16,8 @@ def image_to_text(image_bytes: bytes) -> str:
     with open(img_path, "wb") as f:
         f.write(image_bytes)
     try:
+        if pytesseract is None:  # pragma: no cover - optional dependency
+            raise RuntimeError("pytesseract not installed")
         text = pytesseract.image_to_string(Image.open(img_path))
     except Exception:
         text = ""
