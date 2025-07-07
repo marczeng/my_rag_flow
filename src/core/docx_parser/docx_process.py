@@ -75,11 +75,29 @@ class ParserDocx():
         df.to_excel(md, index=False)
         return md
 
+    def convert_rows_to_md(self, rows):
+        df = pd.DataFrame(rows[1:], columns=rows[0])
+        if not os.path.exists("data/cache/tables"):
+            os.mkdir("data/cache/tables")
+        md = "data/cache/tables/{}.xlsx".format(get_uuid())
+        df.to_excel(md, index=False)
+        return md
+
+    def is_same_logical_table(self, table1, table2):
+        if len(table1.columns) != len(table2.columns):
+            return False
+        header1 = [cell.text.strip() for cell in table1.rows[0].cells]
+        header2 = [cell.text.strip() for cell in table2.rows[0].cells]
+        return header1 == header2
+
     def read2docx(self,docx_file):
         result = []
         doc = docx.Document(docx_file)
+        parts = list(self.iter_block_items(doc))
         k = 0
-        for part in self.iter_block_items(doc):
+        i = 0
+        while i < len(parts):
+            part = parts[i]
             if part[1] == "Text":
                 context = part[0].text
                 if context == "":
@@ -113,15 +131,27 @@ class ParserDocx():
                     indent = part[0].paragraph_format.first_line_indent.pt
                 data = {"content": part[0].text, "style": style_name, "type": "content", "font_size": font_size,
                         "bold": part[0].runs[-1].font.bold, "indent": indent if indent else 0}
+                paragraph = part[0].text
+                i += 1
 
             elif part[1] == "Table":
-                md_text = self.convert_table_to_md(part[0])
-
-                paragraph = part[0]
+                table = part[0]
+                rows = [[cell.text for cell in row.cells] for row in table.rows]
+                j = i + 1
+                while j < len(parts) and parts[j][1] == "Table" and self.is_same_logical_table(table, parts[j][0]):
+                    next_rows = [[cell.text for cell in row.cells] for row in parts[j][0].rows]
+                    if next_rows and rows and next_rows[0] == rows[0]:
+                        next_rows = next_rows[1:]
+                    rows.extend(next_rows)
+                    j += 1
+                md_text = self.convert_rows_to_md(rows)
+                paragraph = table
                 description = "tables"
                 data = {"content": md_text, "style": None, "type": "tables", "font_size": None,
                         "bold": None, "indent": 0}
+                i = j
             else:
+                i += 1
                 continue
 
             if paragraph == "":
