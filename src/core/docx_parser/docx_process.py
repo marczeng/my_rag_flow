@@ -72,7 +72,7 @@ class ParserDocx():
             data.append([cell.text for cell in row.cells])
         df = pd.DataFrame(data[1:], columns=data[0])
         if not os.path.exists("data/cache/tables"):
-            os.mkdir("data/cache/tables")
+            os.makedirs("data/cache/tables", exist_ok=True)
         md = "data/cache/tables/{}.xlsx".format(get_uuid())
         df.to_excel(md, index=False)
         return md
@@ -80,7 +80,7 @@ class ParserDocx():
     def convert_rows_to_md(self, rows):
         df = pd.DataFrame(rows[1:], columns=rows[0])
         if not os.path.exists("data/cache/tables"):
-            os.mkdir("data/cache/tables")
+            os.makedirs("data/cache/tables", exist_ok=True)
         md = "data/cache/tables/{}.xlsx".format(get_uuid())
         df.to_excel(md, index=False)
         return md
@@ -109,6 +109,7 @@ class ParserDocx():
             if part[1] == "Text":
                 context = part[0].text
                 if context == "":
+                    i += 1
                     continue
                 style_name = part[0].style.name
 
@@ -127,9 +128,6 @@ class ParserDocx():
                 else:
                     paragraph = context
                     description = "content"
-
-                if context == "":
-                    continue
 
                 font_size = None
                 indent = None
@@ -154,7 +152,12 @@ class ParserDocx():
                 table = part[0]
                 rows = [[cell.text for cell in row.cells] for row in table.rows]
                 j = i + 1
-                while j < len(parts) and parts[j][1] == "Table" and self.is_same_logical_table(table, parts[j][0]):
+                while j < len(parts):
+                    if parts[j][1] == "Text" and not parts[j][0].text.strip():
+                        j += 1
+                        continue
+                    if parts[j][1] != "Table" or not self.is_same_logical_table(table, parts[j][0]):
+                        break
                     next_rows = [[cell.text for cell in row.cells] for row in parts[j][0].rows]
                     if next_rows and rows and next_rows[0] == rows[0]:
                         next_rows = next_rows[1:]

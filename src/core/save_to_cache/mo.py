@@ -2,10 +2,15 @@
 # @author  : 冬瓜                              
 # @mail    : dylan_han@126.com    
 # @Time    : 2025/3/17 17:19
-import pymysql
+try:
+    import pymysql
+except Exception:  # pragma: no cover - optional dependency
+    pymysql = None
 
 class MatrixOne:
     def __init__(self):
+        if pymysql is None:  # pragma: no cover - optional dependency
+            raise ImportError("pymysql is required for MatrixOne")
         self.db = pymysql.connect(
             host='117.186.222.46',
             port=6001,
