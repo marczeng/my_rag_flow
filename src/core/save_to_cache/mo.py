@@ -3,7 +3,6 @@
 # @mail    : dylan_han@126.com    
 # @Time    : 2025/3/17 17:19
 import pymysql
-from pymysql.converters import escape_string
 
 class MatrixOne:
     def __init__(self):
@@ -55,19 +54,19 @@ file_name_embedding vecf32(1024)
         self.db.commit()
 
     def _insert_to_table(self, table, columns, values):
+        """Insert a row into ``table`` using parameterized SQL."""
         column = ",".join(columns)
-        value = ','.join(["'" + str(escape_string(str(unit))) + "'" for unit in values])
-        sql_instruction = "INSERT INTO {table} ({column}) VALUES ({data})".format(table=table, column=column,
-                                                                                  data=value)
-        self.cursor.execute(sql_instruction)
+        placeholders = ",".join(["%s"] * len(values))
+        sql_instruction = f"INSERT INTO {table} ({column}) VALUES ({placeholders})"
+        self.cursor.execute(sql_instruction, values)
         self.db.commit()
 
-    def _insert_to_table_abstract(self, columns, values,table):
+    def _insert_to_table_abstract(self, columns, values, table):
+        """Insert a row into ``table`` using parameterized SQL (abstracted)."""
         column = ",".join(columns)
-        value = ','.join(["'" + str(escape_string(str(unit))) + "'" for unit in values])
-        sql_instruction = "INSERT INTO {table} ({column}) VALUES ({data})".format(table=table, column=column,
-                                                                                  data=value)
-        self.cursor.execute(sql_instruction)
+        placeholders = ",".join(["%s"] * len(values))
+        sql_instruction = f"INSERT INTO {table} ({column}) VALUES ({placeholders})"
+        self.cursor.execute(sql_instruction, values)
         self.db.commit()
 
     def search_to_table(self, embed, column_name="chunks_embedding", method="l1_norm", table_name="handx"):
