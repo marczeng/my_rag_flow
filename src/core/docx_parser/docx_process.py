@@ -14,6 +14,7 @@ from docx.oxml.table import CT_Tbl
 from docx.oxml.text.paragraph import CT_P
 import pandas as pd
 from src.core.utils.utils import get_uuid
+from src.core.utils.ocr import image_to_text as ocr_image_to_text
 
 from tqdm import tqdm
 
@@ -58,7 +59,8 @@ class ParserDocx():
                 paragraph = Paragraph(child, parent)
                 if self.is_image(paragraph, parent):
                     yield [self.get_ImagePart(paragraph, parent), "Image"]
-                yield [Paragraph(child, parent), "Text"]
+                else:
+                    yield [paragraph, "Text"]
             elif isinstance(child, CT_Tbl):
                 # print('[Table] ')
                 yield [Table(child, parent), "Table"]
@@ -82,6 +84,12 @@ class ParserDocx():
         md = "data/cache/tables/{}.xlsx".format(get_uuid())
         df.to_excel(md, index=False)
         return md
+
+    def extract_image_text(self, image_part: ImagePart) -> str:
+        """Save image and extract text using OCR."""
+        if image_part is None:
+            return ""
+        return ocr_image_to_text(image_part.blob)
 
     def is_same_logical_table(self, table1, table2):
         if len(table1.columns) != len(table2.columns):
@@ -132,6 +140,14 @@ class ParserDocx():
                 data = {"content": part[0].text, "style": style_name, "type": "content", "font_size": font_size,
                         "bold": part[0].runs[-1].font.bold, "indent": indent if indent else 0}
                 paragraph = part[0].text
+                i += 1
+
+            elif part[1] == "Image":
+                ocr_text = self.extract_image_text(part[0])
+                paragraph = ocr_text
+                description = "image"
+                data = {"content": ocr_text, "style": "image", "type": "content", "font_size": None,
+                        "bold": None, "indent": 0}
                 i += 1
 
             elif part[1] == "Table":

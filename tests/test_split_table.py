@@ -29,5 +29,5 @@ def test_split_tables_combined(tmp_path):
     df = pd.read_excel(tables[0]["content"])
     assert list(df.columns) == ["A", "B"]
     assert df.shape[0] == 2
-    assert df.iloc[0, 0] == "1"
-    assert df.iloc[1, 0] == "3"
+    assert str(df.iloc[0, 0]) == "1"
+    assert str(df.iloc[1, 0]) == "3"
