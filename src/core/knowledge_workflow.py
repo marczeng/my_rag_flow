@@ -13,6 +13,7 @@ from src.core.docx_parser.docx_process import ParserDocx
 from src.core.docx_parser.doc2docx import convert_doc_to_docx
 from src.core.docx_parser.docx_helper import return_file_name
 from src.core.docx_parser.docx_helper import merge_sub_chunck as merge
+from src.core.pdf_parser.pdf_process import ParserPDF
 from src.core.models.embeddings import Embedding
 from src.core.save_to_cache.insert2mo import insert2mo 
 
@@ -40,6 +41,7 @@ class UserKnowledgeWorkflow:
 
     def __init__(self):
         self.docx_processor = ParserDocx()
+        self.pdf_processor = ParserPDF()
 
         # 构建工作流
         self.workflow = self._build_workflow()
@@ -247,8 +249,16 @@ class UserKnowledgeWorkflow:
         return state
 
     def _parser_pdf(self,state:knowledgeWorkflowState) -> knowledgeWorkflowState:
-        state["error_messages"].append("该功能待开发！！")
-        state["workflow_status"] = "error"
+        logger.info("开始解析 PDF 文件 ......")
+        try:
+            cache_result = self.pdf_processor.main(state)
+            state["cache_states"] = cache_result
+            state["messages"].append(AIMessage(content="PDF 文件解析完毕~"))
+        except Exception as e:
+            logger.exception(f"PDF 文件解析失败：{str(e)}")
+            state["error_messages"].append(f"PDF 文件解析失败: {str(e)}")
+            state["messages"].append(AIMessage(content=f"PDF 文件解析出错: {str(e)}"))
+            state["workflow_status"] = "error"
         return state
 
     def _parser_docx(self,state:knowledgeWorkflowState) -> knowledgeWorkflowState:
