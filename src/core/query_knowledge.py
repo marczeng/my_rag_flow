@@ -255,9 +255,11 @@ class RetrievalWorkflow:
             state["messages"].append(AIMessage(content="检索+召回成功"))
 
         except Exception as e:
-            logger.exception(f"检索+召回成功：{str(e)}")
-            state["error_messages"].append(f"检索+召回成功: {str(e)}")
-            state["messages"].append(AIMessage(content=f"检索+召回成功: {str(e)}"))
+            logger.exception(f"检索+召回失败：{str(e)}")
+            state["error_messages"].append(f"检索+召回失败: {str(e)}")
+            state["messages"].append(
+                AIMessage(content=f"检索+召回失败: {str(e)}")
+            )
             state["workflow_status"] = "error"
         return state
 

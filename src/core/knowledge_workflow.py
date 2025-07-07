@@ -236,8 +236,11 @@ class UserKnowledgeWorkflow:
                     state["input_files"] = temp
                 state["messages"].append(AIMessage(content="文件类型（doc -> docx）转换完毕~"))
             else:
-                state["error_messages"].append(f"文件转换失败: {str(e)}")
-                state["messages"].append(AIMessage(content=f"文件转换出错: {str(e)}"))
+                state["error_messages"].append("文件转换失败: 不支持的文件类别")
+                state["messages"].append(
+                    AIMessage(content="文件转换出错: 不支持的文件类别")
+                )
+                state["workflow_status"] = "error"
 
         except Exception as e:
             logger.exception(f"文件转换失败：{str(e)}")
