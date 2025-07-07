@@ -19,5 +19,7 @@ dependencies = [
     "transformers==4.43.0",
     "pymysql==1.1.1",
     "ltp==4.2.14",
-    "rank_bm25==0.2.2"
+    "rank_bm25==0.2.2",
+    "pillow>=11.0.0",
+    "pytesseract>=0.3.13"
 ]
