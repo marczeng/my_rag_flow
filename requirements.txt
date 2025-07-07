@@ -1,5 +1,0 @@
-torch
-langchain
-sentence-transformers
-ltp
-elasticsearch
