@@ -36,9 +36,13 @@ class DocumentParser:
         """Parse a docx file and return text blocks and table structures."""
         result = {"text": [], "tables": []}
         try:
-            for item in self._docx.read2docx(file_path):
+            for item in self._docx.read2docx(file_path, structured=True):
                 if item.get("type") == "tables":
-                    result["tables"].append(self._load_table(item["content"]))
+                    content = item["content"]
+                    if isinstance(content, str):
+                        result["tables"].append(self._load_table(content))
+                    else:
+                        result["tables"].append(content)
                 else:
                     result["text"].append(item["content"])
         except Exception as exc:  # pragma: no cover - input may be invalid
@@ -47,13 +51,17 @@ class DocumentParser:
         return result
 
     def parse_pdf(self, file_path: str) -> Dict[str, Any]:
-        """Parse a PDF file extracting text and table information."""
+        """Parse a PDF file extracting text, figures and structured tables."""
         result = {"text": [], "tables": []}
         try:
-            for item in self._pdf.parse(file_path):
+            for item in self._pdf.parse(file_path, structured=True):
                 style = item.get("style")
                 if style == "tables":
-                    result["tables"].append(self._load_table(item["content"]))
+                    content = item["content"]
+                    if isinstance(content, str):
+                        result["tables"].append(self._load_table(content))
+                    else:
+                        result["tables"].append(content)
                 else:
                     result["text"].append(item["content"])
         except Exception as exc:  # pragma: no cover - input may be invalid
