@@ -44,7 +44,7 @@ class DocumentParser:
                     else:
                         result["tables"].append(content)
                 else:
-                    result["text"].append(item["content"])
+                    result["text"].append({"content": item["content"], "page": item.get("page")})
         except Exception as exc:  # pragma: no cover - input may be invalid
             logger.exception("docx parsing failed: %s", exc)
             result["error"] = str(exc)
@@ -63,7 +63,7 @@ class DocumentParser:
                     else:
                         result["tables"].append(content)
                 else:
-                    result["text"].append(item["content"])
+                    result["text"].append({"content": item["content"], "page": item.get("page")})
         except Exception as exc:  # pragma: no cover - input may be invalid
             logger.exception("pdf parsing failed: %s", exc)
             result["error"] = str(exc)
