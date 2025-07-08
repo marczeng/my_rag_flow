@@ -46,16 +46,16 @@ class ParserPDF:
         """Parse a PDF file into text, figure and table elements."""
         results = []
         with pdfplumber.open(pdf_path) as pdf:
-            for page in pdf.pages:
+            for page_num, page in enumerate(pdf.pages, start=1):
                 text = page.extract_text() or ""
                 index = len(results)
                 if text.strip():
-                    results.append({"content": text.strip(), "style": "text", "index": index})
+                    results.append({"content": text.strip(), "style": "text", "index": index, "page": page_num})
                 ocr_text = self._extract_figures(page)
                 if ocr_text:
-                    results.append({"content": ocr_text, "style": "image", "index": len(results)})
+                    results.append({"content": ocr_text, "style": "image", "index": len(results), "page": page_num})
                 for tbl in self._extract_tables(page, structured=structured):
-                    results.append({"content": tbl, "style": "tables", "index": len(results)})
+                    results.append({"content": tbl, "style": "tables", "index": len(results), "page": page_num})
         return results
 
     def main(self, state, structured: bool = False):

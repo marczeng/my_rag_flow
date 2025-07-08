@@ -3,7 +3,7 @@ name = "ai-workflow"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.11"
 dependencies = [
     "fastapi>=0.115.12",
     "langchain-community>=0.3.25",
@@ -25,5 +25,6 @@ dependencies = [
     "tqdm>=4.66",
     "transformers==4.43.0",
     "ltp==4.2.14",
+    "psutil>=5.9",
     "uvicorn>=0.34.3"
 ]

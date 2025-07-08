@@ -55,16 +55,19 @@ class ParserDocx():
         else:
             raise ValueError("something's not right")
 
+        page = 1
         for child in parent_elm.iterchildren():
             if isinstance(child, CT_P):
                 paragraph = Paragraph(child, parent)
                 if self.is_image(paragraph, parent):
-                    yield [self.get_ImagePart(paragraph, parent), "Image"]
+                    yield [self.get_ImagePart(paragraph, parent), "Image", page]
                 else:
-                    yield [paragraph, "Text"]
+                    yield [paragraph, "Text", page]
+                brs = paragraph._p.xpath('.//w:br[@w:type="page"]')
+                if brs:
+                    page += len(brs)
             elif isinstance(child, CT_Tbl):
-                # print('[Table] ')
-                yield [Table(child, parent), "Table"]
+                yield [Table(child, parent), "Table", page]
 
     # 将docx.table对象转换为pandas.DataFrame对象
     def convert_table_to_md(self,table):
@@ -140,7 +143,8 @@ class ParserDocx():
                 if part[0].paragraph_format.first_line_indent:
                     indent = part[0].paragraph_format.first_line_indent.pt
                 data = {"content": part[0].text, "style": style_name, "type": "content", "font_size": font_size,
-                        "bold": part[0].runs[-1].font.bold, "indent": indent if indent else 0}
+                        "bold": part[0].runs[-1].font.bold, "indent": indent if indent else 0,
+                        "page": part[2]}
                 paragraph = part[0].text
                 i += 1
 
@@ -149,7 +153,7 @@ class ParserDocx():
                 paragraph = ocr_text
                 description = "image"
                 data = {"content": ocr_text, "style": "image", "type": "content", "font_size": None,
-                        "bold": None, "indent": 0}
+                        "bold": None, "indent": 0, "page": part[2]}
                 i += 1
 
             elif part[1] == "Table":
@@ -171,7 +175,7 @@ class ParserDocx():
                 paragraph = table
                 description = "tables"
                 data = {"content": md_text, "style": None, "type": "tables", "font_size": None,
-                        "bold": None, "indent": 0}
+                        "bold": None, "indent": 0, "page": part[2]}
                 i = j
             else:
                 i += 1
